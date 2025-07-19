@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo:/docker-entrypoint-initdb.d/
+    environment:
+      MONGO_INITDB_DATABASE: HEROS
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+
+  data_gen_server:
+    build:
+      context: . 
+      dockerfile: Dockerfile
+    
+    environment:
+      - MONGO_URL=mongodb://admin:admin@mongodb:27017/HEROS
+    
+    depends_on:
+      - mongodb
