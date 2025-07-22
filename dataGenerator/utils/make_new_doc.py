@@ -47,6 +47,7 @@ def add_person_to_cell(cell):
     cell["statistics"] = calculate_statistics(current_people)
     
 
+
 def create_next_document(prev_doc):
     
     new_doc = copy.deepcopy(prev_doc)
@@ -58,9 +59,9 @@ def create_next_document(prev_doc):
             old_loc = person["location"]
             if "movement_direction" in person:
                 person["movement_direction"] = [
-                    person["movement_direction"][0]+0.1,  # x
+                    person["movement_direction"][0],  # x
                     person["movement_direction"][1] + 6.9,  # y
-                    person["movement_direction"][2] - 13.3   # z
+                    person["movement_direction"][2] - 25   # z
                 ]
         add_person_to_cell(cell)
     

@@ -42,7 +42,7 @@ def generate_person(index):
         "movement_direction": [
             round(random.uniform(-3, -5), 1),    # x
             round(random.uniform(21, 50), 3),    # y
-            round(random.uniform(300, 500), 3)   # z
+            round(random.uniform(500, 520), 3)   # z
             ],
         "movement_speed": round(random.uniform(0.5, 2.0), 1),
         "location": {
@@ -53,6 +53,3 @@ def generate_person(index):
         "mobile_number_masking": mask_mobile_number(mobile),
         "IMSI": generate_IMSI()
     }
-    
-    
-
